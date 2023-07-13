@@ -3,7 +3,7 @@
 import json, time
 import numpy as np
 
-from network import cached_requests, stored_requests
+from .network import cached_requests, stored_requests
 #cache = cached_requests()
 cache = stored_requests()
 

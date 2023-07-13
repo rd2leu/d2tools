@@ -1,7 +1,7 @@
 # src/network.py
 
 import requests
-from db import storage
+from .db import storage
 
 class caching:
     def request(self, url, force = False):

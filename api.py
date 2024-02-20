@@ -7,7 +7,7 @@ from .network import cached_requests, stored_requests
 #cache = cached_requests()
 cache = stored_requests()
 
-_opendota_delay = 2
+_opendota_delay = 4
 _steamweb_delay = 0
 
 ## opendota utilities

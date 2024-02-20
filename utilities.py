@@ -51,9 +51,10 @@ def shorttime(s):
         frmt = '%#Mm%#Ss'
     return pd.to_datetime([s], unit = 's').strftime(frmt).values[0]
 
-def datestr(s, timezone = 'CET'):
+def datestr(s, timezone = 'CET', frmt = None):
     """seconds to date string"""
-    frmt = '%B %d, %Y - %H:%M'
+    if frmt is None:
+        frmt = '%B %d, %Y - %H:%M'
     return pd.to_datetime(s, unit = 's').tz_localize('UTC').tz_convert(timezone).strftime(frmt)
 
 def datetoseconds(datestr, timezone = 'CET'):

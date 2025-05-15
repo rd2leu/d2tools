@@ -105,7 +105,16 @@ def get_league_matches(league_id, force = False, **parameters):
 
         remaining = request['result']['results_remaining']
         match_ids = [m['match_id'] for m in request['result']['matches']]
-        last_match_id = sorted(match_ids)[0] # they are sorted, but just in case
+
+        if remaining > 0:
+            if len(match_ids) != 0:
+                # they are sorted, but just in case
+                last_match_id = sorted(match_ids)[0]
+            else:
+                # there are remaining matches, but request returned none
+                # so repeat the last request but 1 match id earlier
+                last_match_id = matches[-2:][0]
+                # will repeat the same request if len(matches) == 1
         
     # find duplicates
     matches = np.array(matches)
